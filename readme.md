@@ -27,7 +27,7 @@ MIT
 
 **Thanks all!**
 
-- [@davidleblanc](http://twitter.com/davidleblanc)
+- [@davidleblanc](https://twitter.com/d_le_blanc)
 - [Twitter Bootstrap](http://twitter.github.com/bootstrap/)
 - [jQuery](http://jquery.com)
 - [FontAwesome](http://jquery.com)
