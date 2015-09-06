@@ -1,7 +1,7 @@
 <?php
 /*
  *  Author: David LeBlanc
- *  URL: wpcore.io | @wpcore
+ *  URL: getfrontcore.com | @getfrontcore
  *  Custom functions, support, custom post types and more.
  */
 
@@ -36,20 +36,20 @@ if (function_exists('add_theme_support'))
     add_theme_support('automatic-feed-links');
 
     // Localisation Support
-    load_theme_textdomain('wpcore', get_template_directory() . '/languages');
+    load_theme_textdomain('frontcore', get_template_directory() . '/languages');
 }
 
 /*------------------------------------*\
 	Functions
 \*------------------------------------*/
 
-// Load wpcore Blank styles
-function wpcore_styles()
+// Load frontcore Blank styles
+function frontcore_styles()
 {
-    wp_register_style('wpcore', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
-    wp_enqueue_style('wpcore'); // Enqueue it!
+    wp_register_style('frontcore', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
+    wp_enqueue_style('frontcore'); // Enqueue it!
 	
-	wp_register_style('main', get_template_directory_uri() . '/assets/css/wpcore.css', array(), '1.0', 'all');
+	wp_register_style('main', get_template_directory_uri() . '/assets/css/frontcore.css', array(), '1.0', 'all');
     wp_enqueue_style('main'); // Enqueue it!
 	
 	wp_register_style('custom', get_template_directory_uri() . '/assets/css/custom.css', array(), '1.0', 'all');
@@ -59,13 +59,13 @@ function wpcore_styles()
     wp_enqueue_style('wpelements'); // Enqueue it!
 }
 
-// Register wpcore Blank Navigation
-function register_wpcore_menu()
+// Register frontcore Blank Navigation
+function register_frontcore_menu()
 {
     register_nav_menus(array( // Using array to specify more menus if needed
-        'header-menu' => __('Header Menu', 'wpcore'), // Main Navigation
-        'sidebar-menu' => __('Sidebar Menu', 'wpcore'), // Sidebar Navigation
-        'extra-menu' => __('Extra Menu', 'wpcore') // Extra Navigation if needed (duplicate as many as you need!)
+        'header-menu' => __('Header Menu', 'frontcore'), // Main Navigation
+        'sidebar-menu' => __('Sidebar Menu', 'frontcore'), // Sidebar Navigation
+        'extra-menu' => __('Extra Menu', 'frontcore') // Extra Navigation if needed (duplicate as many as you need!)
     ));
 }
 
@@ -137,8 +137,8 @@ if (function_exists('register_sidebar'))
 {
     // Define Sidebar Widget Area 1
     register_sidebar(array(
-        'name' => __('Widget Area 1', 'wpcore'),
-        'description' => __('Description for this widget-area...', 'wpcore'),
+        'name' => __('Widget Area 1', 'frontcore'),
+        'description' => __('Description for this widget-area...', 'frontcore'),
         'id' => 'widget-area-1',
         'before_widget' => '<div id="%1$s" class="%2$s">',
         'after_widget' => '</div>',
@@ -158,7 +158,7 @@ function my_remove_recent_comments_style()
 }
 
 // Pagination for paged posts, Page 1, Page 2, Page 3, with Next and Previous Links, No plugin
-function wpcore_pagination()
+function frontcore_pagination()
 {
     global $wp_query;
     $big = 999999999;
@@ -177,7 +177,7 @@ function wpcore_pagination()
  * @param string filepart
  * @param mixed wp_args style argument list
  */
-function wpcore_get_template_part( $file, $template_args = array(), $cache_args = array() ) {
+function frontcore_get_template_part( $file, $template_args = array(), $cache_args = array() ) {
     $template_args = wp_parse_args( $template_args );
     $cache_args = wp_parse_args( $cache_args );
     if ( $cache_args ) {
@@ -217,19 +217,19 @@ function wpcore_get_template_part( $file, $template_args = array(), $cache_args 
 }
 
 // Custom Excerpts
-function wpcore_index($length) // Create 20 Word Callback for Index page Excerpts, call using wpcore_excerpt('wpcore_index');
+function frontcore_index($length) // Create 20 Word Callback for Index page Excerpts, call using frontcore_excerpt('frontcore_index');
 {
     return 20;
 }
 
-// Create 40 Word Callback for Custom Post Excerpts, call using wpcore_excerpt('wpcore_custom_post');
-function wpcore_custom_post($length)
+// Create 40 Word Callback for Custom Post Excerpts, call using frontcore_excerpt('frontcore_custom_post');
+function frontcore_custom_post($length)
 {
     return 40;
 }
 
 // Create the Custom Excerpts callback
-function wpcore_excerpt($length_callback = '', $more_callback = '')
+function frontcore_excerpt($length_callback = '', $more_callback = '')
 {
     global $post;
     if (function_exists($length_callback)) {
@@ -246,10 +246,10 @@ function wpcore_excerpt($length_callback = '', $more_callback = '')
 }
 
 // Custom View Article link to Post
-function wpcore_blank_view_article($more)
+function frontcore_blank_view_article($more)
 {
     global $post;
-    return '...<br /><a class="btn btn-default" href="' . get_permalink($post->ID) . '">' . __('View Article', 'wpcore') . '</a>';
+    return '...<br /><a class="btn btn-default" href="' . get_permalink($post->ID) . '">' . __('View Article', 'frontcore') . '</a>';
 }
 
 // Remove Admin bar
@@ -259,7 +259,7 @@ function remove_admin_bar()
 }
 
 // Remove 'text/css' from our enqueued stylesheet
-function wpcore_style_remove($tag)
+function frontcore_style_remove($tag)
 {
     return preg_replace('~\s+type=["\'][^"\']++["\']~', '', $tag);
 }
@@ -272,7 +272,7 @@ function remove_thumbnail_dimensions( $html )
 }
 
 // Custom Gravatar in Settings > Discussion
-function wpcoregravatar ($avatar_defaults)
+function frontcoregravatar ($avatar_defaults)
 {
     $myavatar = get_template_directory_uri() . '/img/gravatar.jpg';
     $avatar_defaults[$myavatar] = "Custom Gravatar";
@@ -290,7 +290,7 @@ function enable_threaded_comments()
 }
 
 // Custom Comments Callback
-function wpcorecomments($comment, $args, $depth)
+function frontcorecomments($comment, $args, $depth)
 {
 	$GLOBALS['comment'] = $comment;
 	extract($args, EXTR_SKIP);
@@ -339,10 +339,10 @@ function wpcorecomments($comment, $args, $depth)
 
 // Add Actions
 add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
-add_action('wp_enqueue_scripts', 'wpcore_styles'); // Add Theme Stylesheet
-add_action('init', 'register_wpcore_menu'); // Add wpcore Blank Menu
+add_action('wp_enqueue_scripts', 'frontcore_styles'); // Add Theme Stylesheet
+add_action('init', 'register_frontcore_menu'); // Add frontcore Blank Menu
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
-add_action('init', 'wpcore_pagination'); // Add our wpcore Pagination
+add_action('init', 'frontcore_pagination'); // Add our frontcore Pagination
 
 // Remove Actions
 remove_action('wp_head', 'feed_links_extra', 3); // Display the links to the extra feeds such as category feeds
@@ -359,7 +359,7 @@ remove_action('wp_head', 'rel_canonical');
 remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
 
 // Add Filters
-add_filter('avatar_defaults', 'wpcoregravatar'); // Custom Gravatar in Settings > Discussion
+add_filter('avatar_defaults', 'frontcoregravatar'); // Custom Gravatar in Settings > Discussion
 add_filter('body_class', 'add_slug_to_body_class'); // Add slug to body class (Starkers build)
 add_filter('widget_text', 'do_shortcode'); // Allow shortcodes in Dynamic Sidebar
 add_filter('widget_text', 'shortcode_unautop'); // Remove <p> tags in Dynamic Sidebars (better!)
@@ -370,9 +370,9 @@ add_filter('wp_nav_menu_args', 'my_wp_nav_menu_args'); // Remove surrounding <di
 add_filter('the_category', 'remove_category_rel_from_category_list'); // Remove invalid rel attribute
 add_filter('the_excerpt', 'shortcode_unautop'); // Remove auto <p> tags in Excerpt (Manual Excerpts only)
 add_filter('the_excerpt', 'do_shortcode'); // Allows Shortcodes to be executed in Excerpt (Manual Excerpts only)
-add_filter('excerpt_more', 'wpcore_blank_view_article'); // Add 'View Article' button instead of [...] for Excerpts
+add_filter('excerpt_more', 'frontcore_blank_view_article'); // Add 'View Article' button instead of [...] for Excerpts
 add_filter('show_admin_bar', 'remove_admin_bar'); // Remove Admin bar
-add_filter('style_loader_tag', 'wpcore_style_remove'); // Remove 'text/css' from enqueued stylesheet
+add_filter('style_loader_tag', 'frontcore_style_remove'); // Remove 'text/css' from enqueued stylesheet
 add_filter('post_thumbnail_html', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to thumbnails
 add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove width and height dynamic attributes to post images
 
@@ -380,11 +380,11 @@ add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove
 remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altogether
 
 // Shortcodes
-add_shortcode('wpcore_shortcode_demo', 'wpcore_shortcode_demo'); // You can place [wpcore_shortcode_demo] in Pages, Posts now.
-add_shortcode('wpcore_shortcode_demo_2', 'wpcore_shortcode_demo_2'); // Place [wpcore_shortcode_demo_2] in Pages, Posts now.
+add_shortcode('frontcore_shortcode_demo', 'frontcore_shortcode_demo'); // You can place [frontcore_shortcode_demo] in Pages, Posts now.
+add_shortcode('frontcore_shortcode_demo_2', 'frontcore_shortcode_demo_2'); // Place [frontcore_shortcode_demo_2] in Pages, Posts now.
 
 // Shortcodes above would be nested like this -
-// [wpcore_shortcode_demo] [wpcore_shortcode_demo_2] Here's the page title! [/wpcore_shortcode_demo_2] [/wpcore_shortcode_demo]
+// [frontcore_shortcode_demo] [frontcore_shortcode_demo_2] Here's the page title! [/frontcore_shortcode_demo_2] [/frontcore_shortcode_demo]
 
 /*------------------------------------*\
 	ShortCode Functions
@@ -392,14 +392,14 @@ add_shortcode('wpcore_shortcode_demo_2', 'wpcore_shortcode_demo_2'); // Place [w
 
 // Shortcode Demo with Nested Capability
 /*
-function wpcore_shortcode_demo($atts, $content = null)
+function frontcore_shortcode_demo($atts, $content = null)
 {
     return '<div class="shortcode-demo">' . do_shortcode($content) . '</div>'; // do_shortcode allows for nested Shortcodes
 }
 */
 // Shortcode Demo with simple <h2> tag
 /*
-function wpcore_shortcode_demo_2($atts, $content = null) // Demo Heading H2 shortcode, allows for nesting within above element. Fully expandable.
+function frontcore_shortcode_demo_2($atts, $content = null) // Demo Heading H2 shortcode, allows for nesting within above element. Fully expandable.
 {
     return '<h2>' . $content . '</h2>';
 }

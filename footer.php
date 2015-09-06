@@ -4,8 +4,8 @@
 				<!-- copyright -->
 				<p class="copyright col-sm-12">
 					<hr>
-					&copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>. <?php _e('Powered by', 'wpcore'); ?>
-					<a href="//wordpress.org" title="WordPress">WordPress</a> &amp; <a href="//wpcore.com" title="WpCore">WpCore</a>.
+					&copy; <?php echo date('Y'); ?> Copyright <?php bloginfo('name'); ?>. <?php _e('Powered by', 'frontcore'); ?>
+					<a href="//wordpress.org" title="WordPress">WordPress</a> &amp; <a href="//getfrontcore.com" title="frontcore">frontcore</a>.
 				</p>
 				<!-- /copyright -->
 			</div>

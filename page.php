@@ -30,7 +30,7 @@
 					<!-- article -->
 					<article>
 
-						<h2><?php _e( 'Sorry, nothing to display.', 'wpcore' ); ?></h2>
+						<h2><?php _e( 'Sorry, nothing to display.', 'frontcore' ); ?></h2>
 
 					</article>
 					<!-- /article -->

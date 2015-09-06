@@ -1,5 +1,5 @@
 <!-- pagination -->
 <div class="pagination">
-	<?php wpcore_pagination(); ?>
+	<?php frontcore_pagination(); ?>
 </div>
 <!-- /pagination -->

@@ -8,9 +8,9 @@
 				<!-- article -->
 				<article id="post-404">
 
-					<h1><?php _e( 'Page not found', 'wpcore' ); ?></h1>
+					<h1><?php _e( 'Page not found', 'frontcore' ); ?></h1>
 					<h2>
-						<a href="<?php echo home_url(); ?>"><?php _e( 'Return home?', 'wpcore' ); ?></a>
+						<a href="<?php echo home_url(); ?>"><?php _e( 'Return home?', 'frontcore' ); ?></a>
 					</h2>
 
 				</article>

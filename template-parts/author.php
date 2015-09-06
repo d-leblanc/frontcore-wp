@@ -6,13 +6,13 @@
 
 		<?php if (have_posts()): the_post(); ?>
 
-			<h1><?php _e( 'Author Archives for ', 'wpcore' ); echo get_the_author(); ?></h1>
+			<h1><?php _e( 'Author Archives for ', 'frontcore' ); echo get_the_author(); ?></h1>
 
 		<?php if ( get_the_author_meta('description')) : ?>
 
 		<?php echo get_avatar(get_the_author_meta('user_email')); ?>
 
-			<h2><?php _e( 'About ', 'wpcore' ); echo get_the_author() ; ?></h2>
+			<h2><?php _e( 'About ', 'frontcore' ); echo get_the_author() ; ?></h2>
 
 			<?php echo wpautop( get_the_author_meta('description') ); ?>
 
@@ -39,11 +39,11 @@
 
 				<!-- post details -->
 				<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
-				<span class="author"><?php _e( 'Published by', 'wpcore' ); ?> <?php the_author_posts_link(); ?></span>
-				<span class="comments"><?php comments_popup_link( __( 'Leave your thoughts', 'wpcore' ), __( '1 Comment', 'wpcore' ), __( '% Comments', 'wpcore' )); ?></span>
+				<span class="author"><?php _e( 'Published by', 'frontcore' ); ?> <?php the_author_posts_link(); ?></span>
+				<span class="comments"><?php comments_popup_link( __( 'Leave your thoughts', 'frontcore' ), __( '1 Comment', 'frontcore' ), __( '% Comments', 'frontcore' )); ?></span>
 				<!-- /post details -->
 
-				<?php wpcore_excerpt('wpcore_index'); // Build your custom callback length in functions.php ?>
+				<?php frontcore_excerpt('frontcore_index'); // Build your custom callback length in functions.php ?>
 
 				<br class="clear">
 
@@ -59,7 +59,7 @@
 			<!-- article -->
 			<article>
 
-				<h2><?php _e( 'Sorry, nothing to display.', 'wpcore' ); ?></h2>
+				<h2><?php _e( 'Sorry, nothing to display.', 'frontcore' ); ?></h2>
 
 			</article>
 			<!-- /article -->

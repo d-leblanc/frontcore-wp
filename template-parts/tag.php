@@ -4,7 +4,7 @@
 		<!-- section -->
 		<section>
 
-			<h1><?php _e( 'Tag Archive: ', 'wpcore' ); echo single_tag_title('', false); ?></h1>
+			<h1><?php _e( 'Tag Archive: ', 'frontcore' ); echo single_tag_title('', false); ?></h1>
 
 			<?php get_template_part('loop'); ?>
 

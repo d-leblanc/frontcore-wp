@@ -35,12 +35,12 @@ if ($the_query->have_posts()): while ($the_query->have_posts()) : $the_query->th
 		</h2>
 		<!-- /post title -->
 
-		<?php wpcore_excerpt('wpcore_index'); // Build your custom callback length in functions.php ?>
+		<?php frontcore_excerpt('frontcore_index'); // Build your custom callback length in functions.php ?>
 		<div class="postDetails">
 			<!-- post details -->
 			<span><i class="fa fa-calendar"></i> <?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
-			<span><i class="fa fa-user"></i> <?php _e( 'Published by', 'wpcore' ); ?> <?php the_author_posts_link(); ?></span>
-			<span><i class="fa fa-commenting-o"></i> <?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'wpcore' ), __( '1 Comment', 'wpcore' ), __( '% Comments', 'wpcore' )); ?></span>
+			<span><i class="fa fa-user"></i> <?php _e( 'Published by', 'frontcore' ); ?> <?php the_author_posts_link(); ?></span>
+			<span><i class="fa fa-commenting-o"></i> <?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'frontcore' ), __( '1 Comment', 'frontcore' ), __( '% Comments', 'frontcore' )); ?></span>
 			<!-- /post details -->
 		</div>
 	</article>
@@ -52,7 +52,7 @@ if ($the_query->have_posts()): while ($the_query->have_posts()) : $the_query->th
 
 	<!-- article -->
 	<article>
-		<h2><?php _e( 'Sorry, nothing to display.', 'wpcore' ); ?></h2>
+		<h2><?php _e( 'Sorry, nothing to display.', 'frontcore' ); ?></h2>
 	</article>
 	<!-- /article -->
 

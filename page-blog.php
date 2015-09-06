@@ -8,11 +8,11 @@ get_header();
 			<section class="col-sm-12 col-md-9">
 
 	
-				<h1><?php _e( 'Archives', 'wpcore' ); ?></h1>
+				<h1><?php _e( 'Archives', 'frontcore' ); ?></h1>
 
 				<?php 
-				// Exemple use of wpcore_get_template_part to pass arguments in template parts
-				wpcore_get_template_part('template-parts/loops/loop',array(
+				// Exemple use of frontcore_get_template_part to pass arguments in template parts
+				frontcore_get_template_part('template-parts/loops/loop',array(
 					'wp_query_args'=>array('post_type'=>'post','posts_per_page'=>'-1')
 					)
 				);
