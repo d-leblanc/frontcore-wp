@@ -38,14 +38,28 @@
 <h3>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h3>
 
-<p>Clone this Git repo :</p>
+<p>Go into your /wp-content/themes folder and clone frontcore repository :</p>
 
-<div class="highlight highlight-sh"><pre>git clone https://github.com/d-leblanc/frontcore-wp master</pre></div>
+<div class="highlight highlight-sh"><pre>git clone https://github.com/d-leblanc/frontcore-wp.git frontcore</pre></div>
 
-<ul>
-<li>Create child theme with your name</li>
-<li>...</li>
-</ul>
+<p>Now clone the basic child theme repository :</p>
+
+<div class="highlight highlight-sh"><pre>git clone https://github.com/d-leblanc/fc-child-wp.git your-child-theme</pre></div>
+
+<p>Now go into your-child-theme directory and edit style.css file :</p>
+
+<div class="highlight highlight-sh"><pre>/<span class="pl-k">*</span>
+ Theme Name:   My website
+ Description:  My website description
+ Author:       My name
+ Author URI:   http://mywebsite.com
+ Template:     frontcore                       <span class="pl-k">&lt;</span>--- Don<span class="pl-s"><span class="pl-pds">'</span>t touch this line</span>
+<span class="pl-s"> Text Domain:  frontcore-child                 &lt;--- Don<span class="pl-pds">'</span></span>t touch this line
+<span class="pl-k">*</span>/</pre></div>
+
+<p>Now you can use frontcore features.</p>
+
+<p>For documentation see <a href="http://getfrontcore.com">http://getfrontcore.com</a></p>
 
 <h2>
 <a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
