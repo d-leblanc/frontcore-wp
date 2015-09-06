@@ -11,13 +11,31 @@ Wordpress master theme core for easiest custom project building.
 
 ### Installation
 
-Clone this Git repo :
-
+Go into your /wp-content/themes folder and clone frontcore repository :
 ```sh
-git clone https://github.com/d-leblanc/frontcore-wp master
+git clone https://github.com/d-leblanc/frontcore-wp.git frontcore
 ```
-  - Create child theme with your name
-  - ...
+
+Now clone the basic child theme repository :
+```sh
+git clone https://github.com/d-leblanc/fc-child-wp.git your-child-theme
+```
+
+Now go into your-child-theme directory and edit style.css file :
+```sh
+/*
+ Theme Name:   My website
+ Description:  My website description
+ Author:       My name
+ Author URI:   http://mywebsite.com
+ Template:     frontcore                       <--- Don't touch this line
+ Text Domain:  frontcore-child                 <--- Don't touch this line
+*/
+```
+
+Now you can use frontcore features.
+
+For documentation see http://getfrontcore.com
 
 License
 ----
