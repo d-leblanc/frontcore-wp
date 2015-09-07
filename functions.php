@@ -43,9 +43,17 @@ if (function_exists('add_theme_support'))
 	Functions
 \*------------------------------------*/
 
-// Load frontcore Blank styles
+// Load frontcore styles
 function frontcore_styles()
 {
+    //Font Awesome CDN
+    wp_register_style('fontawesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', array(), '1.0', 'all');
+    wp_enqueue_style('fontawesome'); // Enqueue it!
+    
+    //Flat theme bootstrap
+    wp_register_style('frontcore', get_template_directory_uri() . '/assets/css/less/bs-flat-theme/flat.css', array(), '1.0', 'all');
+    wp_enqueue_style('frontcore'); // Enqueue it!
+    
     wp_register_style('frontcore', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
     wp_enqueue_style('frontcore'); // Enqueue it!
 	
@@ -57,6 +65,18 @@ function frontcore_styles()
     
     wp_register_style('wpelements', get_template_directory_uri() . '/assets/css/wpelements.css', array(), '1.0', 'all');
     wp_enqueue_style('wpelements'); // Enqueue it!
+    
+    
+}
+
+// Load frontcore scripts
+function frontcore_scripts()
+{
+    wp_register_script('jquery', '//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js');
+    wp_enqueue_script('jquery'); // Enqueue it!
+    
+    wp_register_script('bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js');
+    wp_enqueue_script('bootstrap'); // Enqueue it!
 }
 
 // Register frontcore Blank Navigation
@@ -340,6 +360,7 @@ function frontcorecomments($comment, $args, $depth)
 // Add Actions
 add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
 add_action('wp_enqueue_scripts', 'frontcore_styles'); // Add Theme Stylesheet
+add_action('wp_enqueue_scripts', 'frontcore_scripts'); // Add Theme Javascripts
 add_action('init', 'register_frontcore_menu'); // Add frontcore Blank Menu
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('init', 'frontcore_pagination'); // Add our frontcore Pagination
@@ -378,30 +399,4 @@ add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove
 
 // Remove Filters
 remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altogether
-
-// Shortcodes
-add_shortcode('frontcore_shortcode_demo', 'frontcore_shortcode_demo'); // You can place [frontcore_shortcode_demo] in Pages, Posts now.
-add_shortcode('frontcore_shortcode_demo_2', 'frontcore_shortcode_demo_2'); // Place [frontcore_shortcode_demo_2] in Pages, Posts now.
-
-// Shortcodes above would be nested like this -
-// [frontcore_shortcode_demo] [frontcore_shortcode_demo_2] Here's the page title! [/frontcore_shortcode_demo_2] [/frontcore_shortcode_demo]
-
-/*------------------------------------*\
-	ShortCode Functions
-\*------------------------------------*/
-
-// Shortcode Demo with Nested Capability
-/*
-function frontcore_shortcode_demo($atts, $content = null)
-{
-    return '<div class="shortcode-demo">' . do_shortcode($content) . '</div>'; // do_shortcode allows for nested Shortcodes
-}
-*/
-// Shortcode Demo with simple <h2> tag
-/*
-function frontcore_shortcode_demo_2($atts, $content = null) // Demo Heading H2 shortcode, allows for nesting within above element. Fully expandable.
-{
-    return '<h2>' . $content . '</h2>';
-}
-*/
 ?>

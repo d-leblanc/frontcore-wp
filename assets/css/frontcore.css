@@ -1,3 +1,7 @@
+/*
+* StyleSheet for frontcore
+*/
+
 /**************************************
 MAIN STYLE
 ***************************************/
@@ -27,6 +31,22 @@ a:active {
 }
 
 /**************************************
+FONT SIZE
+***************************************/
+.fs-14{ font-size: 14px; }
+.fs-16{ font-size: 16px; }
+.fs-18{ font-size: 18px; }
+.fs-20{ font-size: 20px; }
+.fs-22{ font-size: 22px; }
+.fs-24{ font-size: 24px; }
+.fs-26{ font-size: 26px; }
+.fs-30{ font-size: 30px; }
+.fs-40{ font-size: 40px; }
+.fs-50{ font-size: 50px; }
+.fs-60{ font-size: 60px; }
+.fs-70{ font-size: 70px; }
+
+/**************************************
 TEXT-ALIGN
 ***************************************/
 .align-center{ text-align: center; }
@@ -50,11 +70,11 @@ MARGINS
 .mt-70{ margin-top: 70px; }
 .mt-100{ margin-top: 100px; }
 
-.mb-10{ margin-top: 10px; }
-.mb-20{ margin-top: 20px; }
-.mb-40{ margin-top: 40px; }
-.mb-70{ margin-top: 70px; }
-.mb-100{ margin-top: 100px; }
+.mb-10{ margin-bottom: 10px; }
+.mb-20{ margin-bottom: 20px; }
+.mb-40{ margin-bottom: 40px; }
+.mb-70{ margin-bottom: 70px; }
+.mb-100{ margin-bottom: 100px; }
 
 .mtb-10{ margin: 10px 0px; }
 .mtb-20{ margin: 20px 0px; }
@@ -63,97 +83,31 @@ MARGINS
 .mtb-100{ margin: 100px 0px; }
 
 /**************************************
-RESPONSIVE
+PADDINGS
 ***************************************/
+.no-padding{ margin: 0px; }
 
-@media only screen and (min-width:320px) {
+.p-10{ padding: 10px; }
+.p-20{ padding: 20px; }
+.p-40{ padding: 40px; }
+.p-70{ padding: 70px; }
+.p-100{ padding: 100px; }
 
-}
-@media only screen and (min-width:480px) {
+.pt-10{ padding-top: 10px; }
+.pt-20{ padding-top: 20px; }
+.pt-40{ padding-top: 40px; }
+.pt-70{ padding-top: 70px; }
+.pt-100{ padding-top: 100px; }
 
-}
-@media only screen and (min-width:768px) {
+.pb-10{ padding-bottom: 10px; }
+.pb-20{ padding-bottom: 20px; }
+.pb-40{ padding-bottom: 40px; }
+.pb-70{ padding-bottom: 70px; }
+.pb-100{ padding-bottom: 100px; }
 
-}
-@media only screen and (min-width:1024px) {
-
-}
-@media only screen and (min-width:1140px) {
-
-}
-@media only screen and (min-width:1280px) {
-
-}
-@media only screen and (-webkit-min-device-pixel-ratio:1.5),
-	   only screen and (min-resolution:144dpi) {
-
-}
-
-/**************************************
-WORDPRESS DEFAULT
-***************************************/
-
-.alignnone {
-	margin:5px 20px 20px 0;
-}
-.aligncenter,
-div.aligncenter {
-	display:block;
-	margin:5px auto 5px auto;
-}
-.alignright {
-	float:right;
-	margin:5px 0 20px 20px;
-}
-.alignleft {
-	float:left;
-	margin:5px 20px 20px 0;
-}
-a img.alignright {
-	float:right;
-	margin:5px 0 20px 20px;
-}
-a img.alignnone {
-	margin:5px 20px 20px 0;
-}
-a img.alignleft {
-	float:left;
-	margin:5px 20px 20px 0;
-}
-a img.aligncenter {
-	display:block;
-	margin-left:auto;
-	margin-right:auto;
-}
-.wp-caption {
-	background:#FFF;
-	border:1px solid #F0F0F0;
-	max-width:96%;
-	padding:5px 3px 10px;
-	text-align:center;
-}
-.wp-caption.alignnone {
-	margin:5px 20px 20px 0;
-}
-.wp-caption.alignleft {
-	margin:5px 20px 20px 0;
-}
-.wp-caption.alignright {
-	margin:5px 0 20px 20px;
-}
-.wp-caption img {
-	border:0 none;
-	height:auto;
-	margin:0;
-	max-width:98.5%;
-	padding:0;
-	width:auto;
-}
-.wp-caption .wp-caption-text,
-.gallery-caption {
-	font-size:11px;
-	line-height:17px;
-	margin:0;
-	padding:0 4px 5px;
-}
+.ptb-10{ padding: 10px 0px; }
+.ptb-20{ padding: 20px 0px; }
+.ptb-40{ padding: 40px 0px; }
+.ptb-70{ padding: 70px 0px; }
+.ptb-100{ padding: 100px 0px; }
 
