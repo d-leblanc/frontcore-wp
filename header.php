@@ -30,10 +30,12 @@
 	        </div>
 	        <div id="navbar" class="navbar-collapse collapse">
 	        <?php /* Primary navigation */
+	        /*
 				wp_nav_menu( array( 
 					'walker' => new Bootstrap_Nav(),
 					'menu_class' => 'nav navbar-nav'
 				));
+			*/
 			?>
 	        </div><!--/.nav-collapse -->
 	      </div>

@@ -31,6 +31,18 @@ a:active {
 }
 
 /**************************************
+DISPLAY
+***************************************/
+.inlineBlock{ display: inline-block; }
+.block{ display: block!important; }
+
+/**************************************
+FLOAT
+***************************************/
+.float-right{ float: right; }
+.float-left{ float: left; }
+
+/**************************************
 FONT SIZE
 ***************************************/
 .fs-14{ font-size: 14px; }
@@ -93,6 +105,12 @@ PADDINGS
 .p-70{ padding: 70px; }
 .p-100{ padding: 100px; }
 
+.plr-10{ padding-left: 10px; padding-right: 10px; }
+.plr-20{ padding-left: 20px; padding-right: 20px; }
+.plr-40{ padding-left: 40px; padding-right: 40px; }
+.plr-70{ padding-left: 70px; padding-right: 70px; }
+.plr-100{ padding-left: 100px; padding-right: 100px; }
+
 .pt-10{ padding-top: 10px; }
 .pt-20{ padding-top: 20px; }
 .pt-40{ padding-top: 40px; }
@@ -105,9 +123,9 @@ PADDINGS
 .pb-70{ padding-bottom: 70px; }
 .pb-100{ padding-bottom: 100px; }
 
-.ptb-10{ padding: 10px 0px; }
-.ptb-20{ padding: 20px 0px; }
-.ptb-40{ padding: 40px 0px; }
-.ptb-70{ padding: 70px 0px; }
-.ptb-100{ padding: 100px 0px; }
+.ptb-10{ padding-top: 10px; padding-bottom: 10px; }
+.ptb-20{ padding-top: 20px; padding-bottom: 20px; }
+.ptb-40{ padding-top: 40px; padding-bottom: 40px; }
+.ptb-70{ padding-top: 70px; padding-bottom: 70px; }
+.ptb-100{ padding-top: 100px; padding-bottom: 100px; }
 
