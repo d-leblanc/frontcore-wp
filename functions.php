@@ -69,13 +69,22 @@ function frontcore_styles()
 // Load frontcore scripts
 function frontcore_scripts()
 {
-    wp_deregister_script('jquery');
-    
-    wp_register_script('jquery', '//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js');
-    wp_enqueue_script('jquery'); // Enqueue it!
+    if (!is_admin()) {
+    	wp_deregister_script('jquery');
+    	wp_register_script('jquery', '//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js');
+        wp_enqueue_script('jquery'); // Enqueue it!
+    }
     
     wp_register_script('bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js');
     wp_enqueue_script('bootstrap'); // Enqueue it!
+}
+
+/* Custom admin Login logo */
+// custom admin login logo
+function custom_login_logo($src) {
+	echo '<style type="text/css">
+	h1 a { background-image: url('.$src.') !important; }
+	</style>';
 }
 
 /* Render Nav for bootsrap */
@@ -102,6 +111,15 @@ class Bootstrap_Nav extends Walker_Nav_Menu {
         $element->is_dropdown = !empty( $children_elements[$element->ID] );
         parent::display_element($element, $children_elements, $max_depth, $depth, $args, $output);
     }
+}
+
+// Add google analytics to footer
+function frontcore_ga($ua) {
+	echo '<script src="http://www.google-analytics.com/ga.js" type="text/javascript"></script>';
+	echo '<script type="text/javascript">';
+	echo 'var pageTracker = _gat._getTracker('.$ua.');';
+	echo 'pageTracker._trackPageview();';
+	echo '</script>';
 }
 
 // Remove the <div> surrounding the dynamic navigation to cleanup markup
@@ -352,6 +370,8 @@ add_action('wp_enqueue_scripts', 'frontcore_styles'); // Add Theme Stylesheet
 add_action('wp_enqueue_scripts', 'frontcore_scripts'); // Add Theme Javascripts
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('init', 'frontcore_pagination'); // Add our frontcore Pagination
+add_action('wp_footer', 'frontcore_ga'); // Google analytics in footer
+add_action('login_head', 'custom_login_logo'); // Custom Admin login logo
 
 // Remove Actions
 remove_action('wp_head', 'feed_links_extra', 3); // Display the links to the extra feeds such as category feeds
