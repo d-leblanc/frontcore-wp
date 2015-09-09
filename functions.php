@@ -57,11 +57,8 @@ function frontcore_styles()
     wp_register_style('frontcore', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
     wp_enqueue_style('frontcore'); // Enqueue it!
 	
-	wp_register_style('main', get_template_directory_uri() . '/assets/css/frontcore.css', array(), '1.0', 'all');
-    wp_enqueue_style('main'); // Enqueue it!
-	
-	wp_register_style('custom', get_template_directory_uri() . '/assets/css/custom.css', array(), '1.0', 'all');
-    wp_enqueue_style('custom'); // Enqueue it!
+	wp_register_style('fc', get_template_directory_uri() . '/assets/css/frontcore.css', array(), '1.0', 'all');
+    wp_enqueue_style('fc'); // Enqueue it!
     
     wp_register_style('wpelements', get_template_directory_uri() . '/assets/css/wpelements.css', array(), '1.0', 'all');
     wp_enqueue_style('wpelements'); // Enqueue it!
@@ -72,21 +69,13 @@ function frontcore_styles()
 // Load frontcore scripts
 function frontcore_scripts()
 {
+    wp_deregister_script('jquery');
+    
     wp_register_script('jquery', '//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js');
     wp_enqueue_script('jquery'); // Enqueue it!
     
     wp_register_script('bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js');
     wp_enqueue_script('bootstrap'); // Enqueue it!
-}
-
-// Register frontcore Blank Navigation
-function register_frontcore_menu()
-{
-    register_nav_menus(array( // Using array to specify more menus if needed
-        'header-menu' => __('Header Menu', 'frontcore'), // Main Navigation
-        'sidebar-menu' => __('Sidebar Menu', 'frontcore'), // Sidebar Navigation
-        'extra-menu' => __('Extra Menu', 'frontcore') // Extra Navigation if needed (duplicate as many as you need!)
-    ));
 }
 
 /* Render Nav for bootsrap */
@@ -361,7 +350,6 @@ function frontcorecomments($comment, $args, $depth)
 add_action('get_header', 'enable_threaded_comments'); // Enable Threaded Comments
 add_action('wp_enqueue_scripts', 'frontcore_styles'); // Add Theme Stylesheet
 add_action('wp_enqueue_scripts', 'frontcore_scripts'); // Add Theme Javascripts
-add_action('init', 'register_frontcore_menu'); // Add frontcore Blank Menu
 add_action('widgets_init', 'my_remove_recent_comments_style'); // Remove inline Recent Comment Styles from wp_head()
 add_action('init', 'frontcore_pagination'); // Add our frontcore Pagination
 
@@ -381,13 +369,9 @@ remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
 
 // Add Filters
 add_filter('avatar_defaults', 'frontcoregravatar'); // Custom Gravatar in Settings > Discussion
-add_filter('body_class', 'add_slug_to_body_class'); // Add slug to body class (Starkers build)
 add_filter('widget_text', 'do_shortcode'); // Allow shortcodes in Dynamic Sidebar
 add_filter('widget_text', 'shortcode_unautop'); // Remove <p> tags in Dynamic Sidebars (better!)
 add_filter('wp_nav_menu_args', 'my_wp_nav_menu_args'); // Remove surrounding <div> from WP Navigation
-// add_filter('nav_menu_css_class', 'my_css_attributes_filter', 100, 1); // Remove Navigation <li> injected classes (Commented out by default)
-// add_filter('nav_menu_item_id', 'my_css_attributes_filter', 100, 1); // Remove Navigation <li> injected ID (Commented out by default)
-// add_filter('page_css_class', 'my_css_attributes_filter', 100, 1); // Remove Navigation <li> Page ID's (Commented out by default)
 add_filter('the_category', 'remove_category_rel_from_category_list'); // Remove invalid rel attribute
 add_filter('the_excerpt', 'shortcode_unautop'); // Remove auto <p> tags in Excerpt (Manual Excerpts only)
 add_filter('the_excerpt', 'do_shortcode'); // Allows Shortcodes to be executed in Excerpt (Manual Excerpts only)

@@ -1,16 +1,13 @@
 <?php 
 /* Default loop template */
-if(!isset($template_args['wp_query_args'])){
+if(!isset($template_args['args'])){
 	$args = array(
 		'post_type'=>'post',
 		'posts_per_page'=>'-1'
 	);
 }
 else{
-	$args = array(
-		'post_type'=>$template_args['wp_query_args']['post_type'],
-		'posts_per_page'=>$template_args['wp_query_args']['posts_per_page']
-	);	
+	$args = $template_args['args'];
 }
 
 $the_query = new Wp_Query($args);

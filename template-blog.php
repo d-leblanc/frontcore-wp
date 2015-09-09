@@ -1,5 +1,6 @@
-<?php 
-get_header(); 
+<?php
+	/* Template Name: Blog Posts */
+	get_header(); 
 ?>
 
 	<main role="main" class="container">
@@ -10,10 +11,14 @@ get_header();
 	
 				<h1><?php _e( 'Archives', 'frontcore' ); ?></h1>
 
-				<?php 
-				// Exemple use of frontcore_get_template_part to pass arguments in template parts
+				<?php
+				$args = array(
+					'post_type'=>'post',
+					'posts_per_page'=>'-1'	
+				);
+				
 				frontcore_get_template_part('template-parts/loops/loop',array(
-					'wp_query_args'=>array('post_type'=>'post','posts_per_page'=>'-1')
+						'args'=>$args,
 					)
 				);
 				?>
