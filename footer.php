@@ -13,9 +13,5 @@
 		<!-- /footer -->
 
 		<?php wp_footer(); ?>
-
-		<!-- analytics -->
-
-
 	</body>
 </html>

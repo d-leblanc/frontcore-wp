@@ -29,16 +29,19 @@
 	          <a class="navbar-brand" href="<?php bloginfo('url')?>"><?php bloginfo('name')?></a>
 	        </div>
 	        <div id="navbar" class="navbar-collapse collapse">
-	        <?php /* Primary navigation */
-	        /*
+	        <?php 
+	        
+	        /* Primary navigation */
+	     
 				wp_nav_menu( array( 
 					'walker' => new Bootstrap_Nav(),
 					'menu_class' => 'nav navbar-nav'
 				));
-			*/
-			?>
-	        </div><!--/.nav-collapse -->
+			
+				?>
+	         </div><!--/.nav-collapse -->
 	      </div>
 	    </nav>
+	    <?php echo custom_breadcrumbs(); ?>
 		
 

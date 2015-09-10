@@ -62,11 +62,13 @@ function custom_breadcrumbs($breadcrums_id = 'breadcrumb',$breadcrums_class = 'b
 
 // Add google analytics to footer
 function frontcore_ga($ua) {
-	echo '<script src="http://www.google-analytics.com/ga.js" type="text/javascript"></script>';
-	echo '<script type="text/javascript">';
-	echo 'var pageTracker = _gat._getTracker('.$ua.');';
-	echo 'pageTracker._trackPageview();';
-	echo '</script>';
+	$ga = '<script src="http://www.google-analytics.com/ga.js" type="text/javascript"></script>';
+	$ga .= '<script type="text/javascript">';
+	$ga .= 'var pageTracker = _gat._getTracker('.$ua.');';
+	$ga .= 'pageTracker._trackPageview();';
+	$ga .= '</script>';
+	
+	return $ga;
 }
 
 // Get Template parts with args
@@ -157,8 +159,6 @@ function frontcore_pagination()
         'total' => $wp_query->max_num_pages
     ));
 }
-
-
 
 // Custom Excerpts
 function frontcore_index($length) // Create 20 Word Callback for Index page Excerpts, call using frontcore_excerpt('frontcore_index');
