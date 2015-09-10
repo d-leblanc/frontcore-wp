@@ -4,23 +4,21 @@
 function frontcore_styles()
 {
     //Font Awesome CDN
-    wp_register_style('fontawesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', array(), '1.0', 'all');
+    wp_register_style('fontawesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css', array(), false, 'all');
     wp_enqueue_style('fontawesome'); // Enqueue it!
     
     //Flat theme bootstrap
-    wp_register_style('bootstrap', get_template_directory_uri() . '/assets/css/bootstrap/theme/flat.css', array(), '1.0', 'all');
+    wp_register_style('bootstrap', get_template_directory_uri() . '/assets/css/bootstrap/theme/flat.css', array(), false, 'all');
     wp_enqueue_style('bootstrap'); // Enqueue it!
     
-    wp_register_style('frontcore-style', get_template_directory_uri() . '/style.css', array(), '1.0', 'all');
+    wp_register_style('frontcore-style', get_template_directory_uri() . '/style.css', array(), false, 'all');
     wp_enqueue_style('frontcore-style'); // Enqueue it!
 	
-	wp_register_style('frontcore', get_template_directory_uri() . '/assets/css/frontcore.css', array(), '1.0', 'all');
+	wp_register_style('frontcore', get_template_directory_uri() . '/assets/css/frontcore.css', array(), false, 'all');
     wp_enqueue_style('frontcore'); // Enqueue it!
     
-    wp_register_style('wpelements', get_template_directory_uri() . '/assets/css/wpelements.css', array(), '1.0', 'all');
+    wp_register_style('wpelements', get_template_directory_uri() . '/assets/css/wpelements.css', array(), false, 'all');
     wp_enqueue_style('wpelements'); // Enqueue it!
-    
-    
 }
 
 // Load frontcore scripts

@@ -5,16 +5,21 @@ function title() {
   if (is_home()) {
     if (get_option('page_for_posts', true)) {
       return get_the_title(get_option('page_for_posts', true));
-    } else {
+    }
+    else {
       return __('Latest Posts', 'frontcore');
     }
-  } elseif (is_archive()) {
+  }
+  elseif(is_archive()) {
     return get_the_archive_title();
-  } elseif (is_search()) {
+  }
+  elseif(is_search()) {
     return sprintf(__('Search Results for %s', 'frontcore'), get_search_query());
-  } elseif (is_404()) {
+  }
+  elseif(is_404()) {
     return __('Not Found', 'frontcore');
-  } else {
+  }
+  else {
     return get_the_title();
   }
 }
