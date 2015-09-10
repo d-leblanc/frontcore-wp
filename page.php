@@ -14,7 +14,6 @@
 
 						<?php the_content(); ?>
 
-						<?php comments_template( '', true ); // Remove if you don't want comments ?>
 
 						<br class="clear">
 
