@@ -30,7 +30,7 @@
 			
 			<!-- aside -->
 			<aside class="col-sm-12 col-md-3">
-				<?php get_sidebar(); ?>
+				<?php get_template_part('template-parts/sidebar'); ?>
 			</aside>
 			<!-- /aside -->
 		</div>
