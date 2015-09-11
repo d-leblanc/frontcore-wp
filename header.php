@@ -42,6 +42,7 @@
 	         </div><!--/.nav-collapse -->
 	      </div>
 	    </nav>
-	    <?php echo custom_breadcrumbs(); ?>
-		
+	    <!-- BreadCrumb -->
+	    <?php custom_breadcrumbs('breadcrumb','breadcrumb') ?>
+		<!-- /BreadCrumb -->
 

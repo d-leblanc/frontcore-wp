@@ -28,9 +28,11 @@ class Bootstrap_Nav extends Walker_Nav_Menu {
 
 // Breadcrumb
 function custom_breadcrumbs($breadcrums_id = 'breadcrumb',$breadcrums_class = 'breadcrumb',$home_title = 'Accueil', $custom_taxonomy = null) {
-        echo '<ol class="'.$breadcrums_class.'" id="'.$breadcrums_id.'">';
+        
         if (!is_home()) {
-                echo '<li><a href="';
+                echo '<div class="container mt-10">';
+                echo '<ol class="'.$breadcrums_class.'" id="'.$breadcrums_id.'">';
+                echo '<li><strong>Vous êtes ici :</strong></li><li><a href="';
                 echo get_option('home');
                 echo '">';
                 echo $home_title;
@@ -48,15 +50,17 @@ function custom_breadcrumbs($breadcrums_id = 'breadcrumb',$breadcrums_class = 'b
                         echo the_title();
                         echo '</li>';
                 }
+            if (is_tag()) {single_tag_title();}
+            elseif (is_day()) {echo"<li>Archive for "; the_time('F jS, Y'); echo'</li>';}
+            elseif (is_month()) {echo"<li>Archive for "; the_time('F, Y'); echo'</li>';}
+            elseif (is_year()) {echo"<li>Archive for "; the_time('Y'); echo'</li>';}
+            elseif (is_author()) {echo"<li>Author Archive"; echo'</li>';}
+            elseif (isset($_GET['paged']) && !empty($_GET['paged'])) {echo "<li>Blog Archives"; echo'</li>';}
+            elseif (is_search()) {echo"<li>Search Results"; echo'</li>';}
+            echo '</ol>';
+            echo '</div>';
         }
-        elseif (is_tag()) {single_tag_title();}
-        elseif (is_day()) {echo"<li>Archive for "; the_time('F jS, Y'); echo'</li>';}
-        elseif (is_month()) {echo"<li>Archive for "; the_time('F, Y'); echo'</li>';}
-        elseif (is_year()) {echo"<li>Archive for "; the_time('Y'); echo'</li>';}
-        elseif (is_author()) {echo"<li>Author Archive"; echo'</li>';}
-        elseif (isset($_GET['paged']) && !empty($_GET['paged'])) {echo "<li>Blog Archives"; echo'</li>';}
-        elseif (is_search()) {echo"<li>Search Results"; echo'</li>';}
-        echo '</ul>';
+        
 }
 
 
@@ -148,17 +152,34 @@ function my_remove_recent_comments_style()
 }
 
 // Pagination for paged posts, Page 1, Page 2, Page 3, with Next and Previous Links, No plugin
-function frontcore_pagination()
-{
-    global $wp_query;
-    $big = 999999999;
-    echo paginate_links(array(
-        'base' => str_replace($big, '%#%', get_pagenum_link($big)),
-        'format' => '?paged=%#%',
-        'current' => max(1, get_query_var('paged')),
-        'total' => $wp_query->max_num_pages
-    ));
+if ( ! function_exists( 'frontcore_pagination' ) ) :
+function frontcore_pagination() {
+	global $wp_query;
+	$big = 999999999; // This needs to be an unlikely integer
+	// For more options and info view the docs for paginate_links()
+	// http://codex.wordpress.org/Function_Reference/paginate_links
+	$paginate_links = paginate_links( array(
+		'base' => str_replace( $big, '%#%', html_entity_decode( get_pagenum_link( $big ) ) ),
+		'current' => max( 1, get_query_var( 'paged' ) ),
+		'total' => $wp_query->max_num_pages,
+		'mid_size' => 5,
+		'prev_next' => true,
+	    'prev_text' => __( '&laquo;', 'foundationpress' ),
+	    'next_text' => __( '&raquo;', 'foundationpress' ),
+		'type' => 'list',
+	) );
+	$paginate_links = str_replace( "<ul class='page-numbers'>", "<ul class='pagination'>", $paginate_links );
+	$paginate_links = str_replace( '<li><span class="page-numbers dots">', "<li><a href='#'>", $paginate_links );
+	$paginate_links = str_replace( "<li><span class='page-numbers current'>", "<li class='active'><a href='#'>", $paginate_links );
+	$paginate_links = str_replace( '</span>', '</a>', $paginate_links );
+	$paginate_links = str_replace( "<li><a href='#'>&hellip;</a></li>", "<li><span class='dots'>&hellip;</span></li>", $paginate_links );
+	$paginate_links = preg_replace( '/\s*page-numbers/', '', $paginate_links );
+	// Display the pagination if more than one page is found.
+	if ( $paginate_links ) {
+		echo $paginate_links;
+	}
 }
+endif;
 
 // Custom Excerpts
 function frontcore_index($length) // Create 20 Word Callback for Index page Excerpts, call using frontcore_excerpt('frontcore_index');

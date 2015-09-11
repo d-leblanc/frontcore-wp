@@ -4,32 +4,22 @@
 ?>
 
 	<main role="main" class="container">
+		
+		
+		
 		<div class="row">
 			<!-- section -->
-			<section class="col-sm-12 col-md-9">
-
-	
-				<h1><?php _e( 'Archives', 'frontcore' ); ?></h1>
-
-				<?php
-				$args = array(
-					'post_type'=>'post',
-					'posts_per_page'=>'-1'	
-				);
-				
-				frontcore_get_template_part('template-parts/loops/loop',array(
-						'args'=>$args,
-					)
-				);
+			<section class="col-sm-12 col-md-8">
+				<h1 class="mb-40"><?php _e( 'Archives', 'frontcore' ); ?></h1>
+				<?php 
+				get_template_part('template-parts/loops/loop'); 
 				?>
-
-				<?php get_template_part('template-parts/pagination'); ?>
 
 			</section>
 			<!-- /section -->
 			
 			<!-- aside -->
-			<aside class="col-sm-12 col-md-3">
+			<aside class="col-sm-12 col-md-3 col-md-offset-1">
 				<?php get_template_part('template-parts/sidebar'); ?>
 			</aside>
 			<!-- /aside -->
@@ -37,3 +27,4 @@
 	</main>
 
 <?php get_footer(); ?>
+

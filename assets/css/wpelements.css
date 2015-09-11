@@ -126,47 +126,93 @@ Search
 Post
 ************************************/
 
-article.hentry .postDetails{
+article.post .postDetails{
     padding: 10px;
     border-top: 1px solid #e7e7e7;
     border-bottom: 1px solid #e7e7e7;
     margin: 10px 0;
 }
 
-article.hentry .postDetails span{
+article.post .postDetails span{
     display: inline-block;
     margin: 0 20px 0 0;
 }
 
+
 /************************************
-Sidebar
+Sidebar (use with https://premium.wpmudev.org/project/custom-sidebars-pro/)
 ************************************/
 
-.sidebar{
-    border-left: 1px solid #e7e7e7;
-    padding: 0 0 0 20px;
+/* Clean sidebar style */
+.sidebar .sideClean div{
+    margin: 0 0 40px 0;
 }
 
-.sidebar ul{
+.sidebar .sideClean h3{
+    font-size: 18px;
+    font-weight: bold;
+    color: #ed1b28;
+}
+
+.sidebar .sideClean ul{
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.sidebar ul h2{
-    font-size: 18px;
-}
-
-.sidebar ul li{
+.sidebar .sideClean ul li{
     border-bottom: 1px solid #e7e7e7;
     padding: 10px 0;
 }
 
-.sidebar ul li:before{
+.sidebar .sideClean ul li:before{
     content: "\f105";
     font-family: FontAwesome;
     font-style: normal;
     font-weight: normal;
     text-decoration: inherit;
     color: red;
+    margin: 0 5px 0 0;
+}
+
+.sidebar .sideClean ul li a{
+    color: #ababab;
+}
+
+.sidebar .sideClean ul li a:hover{
+    text-decoration: none;
+    color: #000;
+}
+
+/* Gray sidebar style */
+.sidebar .sideGray div{
+    margin: 0 0 40px 0;
+}
+
+.sidebar .sideGray h3{
+    font-size: 18px;
+    font-weight: bold;
+    color: #ed1b28;
+}
+
+.sidebar .sideGray ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar .sideGray ul li{
+    margin: 0 0 1px 0;
+}
+
+.sidebar .sideGray ul li a{
+    color: #000;
+    display: block;
+    padding: 10px;
+    background: #e7e7e7;
+}
+
+.sidebar .sideGray ul li a:hover{
+    text-decoration: none;
+    color: #000;
 }

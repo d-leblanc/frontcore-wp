@@ -28,12 +28,13 @@ if (function_exists('add_theme_support'))
 // If Dynamic Sidebar Exists
 if (function_exists('register_sidebar'))
 {
-    // Define Sidebar Widget Area 1
+    // Define Sidebar Main area
+    // For more options download https://premium.wpmudev.org/project/custom-sidebars-pro/
     register_sidebar(array(
-        'name' => __('Widget Area 1', 'frontcore'),
-        'description' => __('Description for this widget-area...', 'frontcore'),
-        'id' => 'widget-area-1',
-        'before_widget' => '<div id="%1$s" class="%2$s">',
+        'name' => __('Main Widget Area', 'frontcore'),
+        'description' => __('Main widget area', 'frontcore'),
+        'id' => 'main-widget-area',
+        'before_widget' => '<div id="%1$s" class="sideClean">',
         'after_widget' => '</div>',
         'before_title' => '<h3>',
         'after_title' => '</h3>'
