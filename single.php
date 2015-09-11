@@ -3,13 +3,24 @@
 	<main role="main" class="container">
 		<div class="row">
 			<!-- section -->
-			<section class="col-sm-12 col-md-9">
+			<section class="col-sm-12 col-md-8">
 
 			<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 		
 				<!-- article -->
-				<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-		
+				<article id="post-<?php the_ID(); ?>" class="post">
+					<!-- post title -->
+					<h1>
+						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
+					</h1>
+					<div class="postDetails">
+						<!-- post details -->
+						<span><i class="fa fa-calendar"></i> <?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
+						<span><i class="fa fa-user"></i> <?php _e( 'Published by', 'frontcore' ); ?> <?php the_author_posts_link(); ?></span>
+						<span><i class="fa fa-commenting-o"></i> <?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'frontcore' ), __( '1 Comment', 'frontcore' ), __( '% Comments', 'frontcore' )); ?></span>
+						<!-- /post details -->
+					</div>
+					<!-- /post title -->
 					<!-- post thumbnail -->
 					<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
 						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
@@ -18,17 +29,9 @@
 					<?php endif; ?>
 					<!-- /post thumbnail -->
 		
-					<!-- post title -->
-					<h1>
-						<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-					</h1>
-					<!-- /post title -->
+					
 		
-					<!-- post details -->
-					<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
-					<span class="author"><?php _e( 'Published by', 'frontcore' ); ?> <?php the_author_posts_link(); ?></span>
-					<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'frontcore' ), __( '1 Comment', 'frontcore' ), __( '% Comments', 'frontcore' )); ?></span>
-					<!-- /post details -->
+					
 		
 					<?php the_content(); // Dynamic Content ?>
 		
@@ -62,7 +65,7 @@
 			</section>
 			<!-- /section -->
 			<!-- aside -->
-			<aside class="col-sm-12 col-md-3">
+			<aside class="col-sm-12 col-md-3 col-md-offset-1">
 				<?php get_template_part('template-parts/sidebar'); ?>
 			</aside>
 			<!-- /aside -->
