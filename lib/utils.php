@@ -26,6 +26,14 @@ class Bootstrap_Nav extends Walker_Nav_Menu {
     }
 }
 
+/* Render quick mobile menu */
+function mobile_menu($args) {
+    echo '<a class="mobile-menu-trigger" href="#"><i class="fa fa-list"></i></a>';
+    echo '<nav class="mobile-menu">';
+    wp_nav_menu();
+    echo '</nav>';
+}
+
 // Breadcrumb
 function custom_breadcrumbs($breadcrums_id = 'breadcrumb',$breadcrums_class = 'breadcrumb',$home_title = 'Accueil', $custom_taxonomy = null) {
         
@@ -164,8 +172,8 @@ function frontcore_pagination() {
 		'total' => $wp_query->max_num_pages,
 		'mid_size' => 5,
 		'prev_next' => true,
-	    'prev_text' => __( '&laquo;', 'foundationpress' ),
-	    'next_text' => __( '&raquo;', 'foundationpress' ),
+	    'prev_text' => __( '&laquo;', 'frontcore' ),
+	    'next_text' => __( '&raquo;', 'frontcore' ),
 		'type' => 'list',
 	) );
 	$paginate_links = str_replace( "<ul class='page-numbers'>", "<ul class='pagination'>", $paginate_links );

@@ -8,6 +8,7 @@ if (function_exists('add_theme_support'))
     
     register_nav_menus( array(
     	'main_menu' => 'Main menu',
+    	'mobile_menu' => 'Mobile menu',
     	'footer_menu' => 'Footer menu',
     ));
 

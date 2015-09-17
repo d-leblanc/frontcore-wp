@@ -32,6 +32,9 @@ function frontcore_scripts()
     
     wp_register_script('bootstrap', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js');
     wp_enqueue_script('bootstrap'); // Enqueue it!
+    
+    wp_register_script('fcscripts', get_template_directory_uri() . '/assets/js/frontcore.js');
+    wp_enqueue_script('fcscripts'); // Enqueue it!
 }
 
 add_action('wp_enqueue_scripts', 'frontcore_styles'); // Add Theme Stylesheet
