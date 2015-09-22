@@ -28,7 +28,6 @@ class Bootstrap_Nav extends Walker_Nav_Menu {
 
 /* Render quick mobile menu */
 function mobile_menu($theme_class) {
-    echo '<a class="mobile-menu-trigger" href="#"><i class="fa fa-list"></i></a>';
     echo '<nav class="mobile-menu '.$theme_class.'">';
     wp_nav_menu(array('theme_location' => 'mobile_menu'));
     echo '</nav>';

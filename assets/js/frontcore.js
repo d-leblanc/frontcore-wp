@@ -1,6 +1,6 @@
 $(function(){
    /*************************************
-    * Responsive
+    * Responsive Menu
     ************************************/
    $('body').append('<div class="mobile-menu-overlay"><div class="close-trigger"><i class="fa fa-close"></i></div></a></div>');
     

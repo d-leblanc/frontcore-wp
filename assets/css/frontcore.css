@@ -365,16 +365,6 @@ Quick responsive menu
 /*
 * Style 1 (fade in-out)
 */
-.mobile-menu-trigger {
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-size: 30px;
-  padding: 10px;
-  background: red;
-  color: #fff;
-  z-index: 1;
-}
 /* Overlay style */
 .mobile-menu-overlay {
   position: fixed;
