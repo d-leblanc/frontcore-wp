@@ -8,7 +8,7 @@ function frontcore_styles()
     wp_enqueue_style('fontawesome'); // Enqueue it!
     
     //Flat theme bootstrap
-    wp_register_style('bootstrap', get_template_directory_uri() . '/assets/css/bootstrap/theme/flat.css', array(), false, 'all');
+    wp_register_style('bootstrap', get_template_directory_uri() . '/assets/css/bootstrap/theme/_flat.css', array(), false, 'all');
     wp_enqueue_style('bootstrap'); // Enqueue it!
     
     wp_register_style('frontcore-style', get_template_directory_uri() . '/style.css', array(), false, 'all');
