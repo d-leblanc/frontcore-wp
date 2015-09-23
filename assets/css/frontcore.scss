@@ -3,6 +3,14 @@
 */
 
 /**************************************
+VARS
+***************************************/
+$font-min-size: 6;
+$font-max-size: 100;
+$margin-padding-min: 10;
+$margin-padding-max: 200;
+
+/**************************************
 MAIN STYLE
 ***************************************/
 
@@ -51,19 +59,10 @@ TEXT
 ***************************************/
 
 /* Font-Size */
-.fs-12{ font-size: 14px; }
-.fs-14{ font-size: 14px; }
-.fs-16{ font-size: 16px; }
-.fs-18{ font-size: 18px; }
-.fs-20{ font-size: 20px; }
-.fs-22{ font-size: 22px; }
-.fs-24{ font-size: 24px; }
-.fs-26{ font-size: 26px; }
-.fs-30{ font-size: 30px; }
-.fs-40{ font-size: 40px; }
-.fs-50{ font-size: 50px; }
-.fs-60{ font-size: 60px; }
-.fs-70{ font-size: 70px; }
+@while $font-min-size <= $font-max-size{
+	.fs-#{$font-min-size} { font-size: $font-min-size + px; }
+	$font-min-size: $font-min-size + 2;
+}
 
 /* Transform */
 .uppercase{ text-transform: uppercase; }
@@ -80,100 +79,28 @@ MARGINS
 ***************************************/
 .no-margin{ margin: 0px; }
 
-.m-10{ margin: 10px; }
-.m-20{ margin: 20px; }
-.m-40{ margin: 40px; }
-.m-70{ margin: 70px; }
-.m-100{ margin: 100px; }
-
-.mt-10{ margin-top: 10px; }
-.mt-20{ margin-top: 20px; }
-.mt-40{ margin-top: 40px; }
-.mt-70{ margin-top: 70px; }
-.mt-100{ margin-top: 100px; }
-
-.mb-10{ margin-bottom: 10px; }
-.mb-20{ margin-bottom: 20px; }
-.mb-40{ margin-bottom: 40px; }
-.mb-70{ margin-bottom: 70px; }
-.mb-100{ margin-bottom: 100px; }
-
-.mtb-10{ margin: 10px 0px; }
-.mtb-20{ margin: 20px 0px; }
-.mtb-40{ margin: 40px 0px; }
-.mtb-70{ margin: 70px 0px; }
-.mtb-100{ margin: 100px 0px; }
-
-.ml-10{ margin-left: 10px; }
-.ml-20{ margin-left: 20px; }
-.ml-40{ margin-left: 40px; }
-.ml-70{ margin-left: 70px; }
-.ml-100{ margin-left: 100px; }
-
-.mr-10{ margin-right: 10px; }
-.mr-20{ margin-right: 20px; }
-.mr-40{ margin-right: 40px; }
-.mr-70{ margin-right: 70px; }
-.mr-100{ margin-right: 100px; }
-
-.mlr-10{ margin: 0 10px; }
-.mlr-20{ margin: 0 20px; }
-.mlr-40{ margin: 0 40px; }
-.mlr-70{ margin: 0 70px; }
-.mlr-100{ margin: 0 100px; }
+$marginClasses: ('m': 'margin','mt': 'margin-top','mb': 'margin-bottom','mtb': 'margin','ml': 'margin-left','mr': 'margin-right','mlr': 'margin');
+@each $shortCut, $attr in $marginClasses{
+	@while $margin-padding-min <= $margin-padding-max{
+		.#{$shortCut}-#{$margin-padding-min} { #{$attr}: $margin-padding-min + px; }
+		$margin-padding-min: $margin-padding-min + 10;
+	}
+	$margin-padding-min : 10;
+}
 
 /**************************************
 PADDINGS
 ***************************************/
 .no-padding{ margin: 0px; }
 
-.p-10{ padding: 10px; }
-.p-20{ padding: 20px; }
-.p-40{ padding: 40px; }
-.p-70{ padding: 70px; }
-.p-100{ padding: 100px; }
-
-.plr-10{ padding-left: 10px; padding-right: 10px; }
-.plr-20{ padding-left: 20px; padding-right: 20px; }
-.plr-40{ padding-left: 40px; padding-right: 40px; }
-.plr-70{ padding-left: 70px; padding-right: 70px; }
-.plr-100{ padding-left: 100px; padding-right: 100px; }
-
-.pt-10{ padding-top: 10px; }
-.pt-20{ padding-top: 20px; }
-.pt-40{ padding-top: 40px; }
-.pt-70{ padding-top: 70px; }
-.pt-100{ padding-top: 100px; }
-
-.pb-10{ padding-bottom: 10px; }
-.pb-20{ padding-bottom: 20px; }
-.pb-40{ padding-bottom: 40px; }
-.pb-70{ padding-bottom: 70px; }
-.pb-100{ padding-bottom: 100px; }
-
-.ptb-10{ padding-top: 10px; padding-bottom: 10px; }
-.ptb-20{ padding-top: 20px; padding-bottom: 20px; }
-.ptb-40{ padding-top: 40px; padding-bottom: 40px; }
-.ptb-70{ padding-top: 70px; padding-bottom: 70px; }
-.ptb-100{ padding-top: 100px; padding-bottom: 100px; }
-
-.pl-10{ padding-left: 10px; }
-.pl-20{ padding-left: 20px; }
-.pl-40{ padding-left: 40px; }
-.pl-70{ padding-left: 70px; }
-.pl-100{ padding-left: 100px; }
-
-.pr-10{ padding-right: 10px; }
-.pr-20{ padding-right: 20px; }
-.pr-40{ padding-right: 40px; }
-.pr-70{ padding-right: 70px; }
-.pr-100{ padding-right: 100px; }
-
-.plr-10{ padding: 0 10px; }
-.plr-20{ padding: 0 20px; }
-.plr-40{ padding: 0 40px; }
-.plr-70{ padding: 0 70px; }
-.plr-100{ padding: 0 100px; }
+$marginClasses: ('p': 'padding','pt': 'padding-top','pb': 'padding-bottom','ptb': 'padding','pl': 'padding-left','pr': 'padding-right','plr': 'padding');
+@each $shortCut, $attr in $marginClasses{
+	@while $margin-padding-min <= $margin-padding-max{
+		.#{$shortCut}-#{$margin-padding-min} { #{$attr}: $margin-padding-min + px; }
+		$margin-padding-min: $margin-padding-min + 10;
+	}
+	$margin-padding-min : 10;
+}
 
 /**************************************
 Quick responsive menu
