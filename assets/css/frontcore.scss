@@ -89,7 +89,17 @@ MARGINS
 $marginClasses: ('m': 'margin','mt': 'margin-top','mb': 'margin-bottom','mtb': 'margin','ml': 'margin-left','mr': 'margin-right','mlr': 'margin');
 @each $shortCut, $attr in $marginClasses{
 	@while $margin-padding-min <= $margin-padding-max{
-		.#{$shortCut}-#{$margin-padding-min} { #{$attr}: $margin-padding-min + px; }
+		.#{$shortCut}-#{$margin-padding-min} { 
+			@if $shortCut == "mtb" { 
+				#{$attr}: $margin-padding-min + px + " " + 0; 
+			}
+			@else if $shortCut == "mlr" { 
+				#{$attr}: 0 + " " + $margin-padding-min + px; 
+			}
+			@else{
+				#{$attr}: $margin-padding-min + px;
+			}
+		}
 		$margin-padding-min: $margin-padding-min + 10;
 	}
 	$margin-padding-min : 10;
@@ -103,7 +113,17 @@ PADDINGS
 $marginClasses: ('p': 'padding','pt': 'padding-top','pb': 'padding-bottom','ptb': 'padding','pl': 'padding-left','pr': 'padding-right','plr': 'padding');
 @each $shortCut, $attr in $marginClasses{
 	@while $margin-padding-min <= $margin-padding-max{
-		.#{$shortCut}-#{$margin-padding-min} { #{$attr}: $margin-padding-min + px; }
+		.#{$shortCut}-#{$margin-padding-min} { 
+			@if $shortCut == "ptb" { 
+				#{$attr}: $margin-padding-min + px + " " + 0; 
+			}
+			@else if $shortCut == "plr" { 
+				#{$attr}: 0 + " " + $margin-padding-min + px; 
+			}
+			@else{
+				#{$attr}: $margin-padding-min + px;
+			}
+		}
 		$margin-padding-min: $margin-padding-min + 10;
 	}
 	$margin-padding-min : 10;
