@@ -1,4 +1,8 @@
 <?php
+/* Assets helper */
+function assets(){
+    return get_stylesheet_directory_uri().'/assets';
+}
 
 /* Render Nav for bootsrap */
 class Bootstrap_Nav extends Walker_Nav_Menu {
@@ -28,9 +32,46 @@ class Bootstrap_Nav extends Walker_Nav_Menu {
 
 /* Render quick mobile menu */
 function mobile_menu($theme_class) {
-    echo '<nav class="mobile-menu '.$theme_class.'">';
-    wp_nav_menu(array('theme_location' => 'mobile_menu'));
-    echo '</nav>';
+    
+    if($theme_class == "fade-in-out"){
+        echo "<script>";
+        echo '
+        $(function(){
+            $("body").append(\'<div class="'.$theme_class.' mobile-menu-overlay"><div class="close-trigger"><i class="fa fa-close"></i></div></div>\');
+            $(\'.mobile-menu-trigger, .close-trigger\').click(function(e){
+                e.preventDefault();
+                $(\'body\').toggleClass(\'showMainMenu\');
+            });
+        });
+        ';
+        echo"</script>";
+        echo"</script>";
+        echo '<nav class="mobile-menu '.$theme_class.'">';
+        wp_nav_menu(array('theme_location' => 'mobile_menu'));
+        echo '</nav>';
+    }
+    else{
+        echo "<script>";
+        echo '
+        $(function(){
+            $(".mobile-menu").nextUntil("body").wrapAll("<div class=\'wrapper\' />");
+            $("body").append(\'<div class="'.$theme_class.' mobile-menu-overlay"></div>\');
+            $(".mobile-menu-trigger, .close-trigger").click(function(e){
+                e.preventDefault();
+                $("body").toggleClass("showMainMenu");
+            });
+        });
+        ';
+        echo"</script>";
+        echo '<nav class="mobile-menu '.$theme_class.'">';
+        echo '<div class="close-trigger"><i class="fa fa-close"></i></div>';
+        wp_nav_menu(array('theme_location' => 'mobile_menu'));
+        echo '</nav>';
+    }
+    
+    
+
+    
 }
 
 // Breadcrumb
