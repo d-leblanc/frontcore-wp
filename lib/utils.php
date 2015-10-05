@@ -56,7 +56,7 @@ function mobile_menu($theme_class) {
         $(function(){
             $(".mobile-menu").nextUntil("body").wrapAll("<div class=\'wrapper\' />");
             $("body").append(\'<div class="'.$theme_class.' mobile-menu-overlay"></div>\');
-            $(".mobile-menu-trigger, .close-trigger").click(function(e){
+            $(".mobile-menu-trigger, .close-trigger, .mobile-menu-overlay").click(function(e){
                 e.preventDefault();
                 $("body").toggleClass("showMainMenu");
             });
@@ -228,6 +228,15 @@ function frontcore_pagination() {
 	}
 }
 endif;
+
+// Truncate characters
+function frontcore_truncate_char($string=null,$nbChars=20,$after="..."){
+    $excerpt = $string;
+    $excerpt = strip_shortcodes($excerpt);
+    $excerpt = strip_tags($excerpt);
+    $the_str = substr($excerpt, 0, $nbChars);
+    return $the_str.$after;
+}
 
 // Custom Excerpts
 function frontcore_index($length) // Create 20 Word Callback for Index page Excerpts, call using frontcore_excerpt('frontcore_index');
